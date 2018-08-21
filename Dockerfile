@@ -9,7 +9,7 @@ RUN pecl install xdebug mcrypt
 
 RUN docker-php-ext-install mbstring exif opcache pdo pdo_mysql zip
 RUN docker-php-ext-enable xdebug
-RUN mkdir -p /xdebug/profiler
+RUN mkdir -p /logs/xdebug/profiler
 RUN echo -e "\n\
     xdebug.default_enable = 1 \n\
     xdebug.remote_enable = 1 \n\
@@ -20,7 +20,7 @@ RUN echo -e "\n\
     xdebug.profiler_enable = 0  \n\
     xdebug.profiler_output_dir = /xdebug/profiler \n\
     xdebug.profiler_output_name = cachegrind.out.%u.%p \n\
-    xdebug.remote_log = /xdebug/xdebug.log \n\
+    xdebug.remote_log = /logs/xdebug/xdebug.log \n\
     " >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 RUN cat /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
