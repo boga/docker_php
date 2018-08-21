@@ -33,8 +33,8 @@ RUN php -r "unlink('composer-setup.php');"
 
 COPY conf/ /usr/local/etc/php-fpm.d/
 
+# For composer installed binaries
 ENV PATH="/root/.composer/vendor/bin:/root/.config/composer/vendor/bin:$PATH"
-# xdebug port
 EXPOSE 9000
 
 CMD ["php-fpm"]
