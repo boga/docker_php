@@ -3,7 +3,7 @@ LABEL maintainer="Ivan Shnurchenko <ivan.shnurchenko@gmail.com>"
 
 RUN apk update \
  && apk add libmcrypt-dev zlib zlib-dev coreutils autoconf gcc libc-dev make \
-            mc htop ncdu tmux nano mariadb-client
+            mc htop ncdu tmux nano mariadb-client fish fish-tools
             
 RUN pecl install xdebug mcrypt
 
