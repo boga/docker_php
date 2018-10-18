@@ -37,4 +37,12 @@ COPY conf/ /usr/local/etc/php-fpm.d/
 ENV PATH="/root/.composer/vendor/bin:/root/.config/composer/vendor/bin:$PATH"
 EXPOSE 9000
 
+ARG PUID=1000
+ARG PGID=1000
+
+RUN addgroup -g ${PGID} phpuser && \
+    adduser -D -u ${PUID} -G phpuser phpuser
+
+USER phpuser
+
 CMD ["php-fpm"]
